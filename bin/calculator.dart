@@ -1,11 +1,41 @@
 void main() {
-  final a = _readNumber("Masukkan angka pertama");
-  final b = _readNumber("Masukkan angka kedua");
+  while (true) {
+    print('\n=== Kalkulator Sederhana ===');
+    print('1) Tambah');
+    print('2) Kurang');
+    print('3) Kali');
+    print('4) Bagi');
+    print('5) Keluar');
+    stdout.write('Pilih [1-5]: ');
+    final pilih = stdin.readLineSync()?.trim();
 
-  print("Hasil kali: ${a * b}");
-  if (b != 0) {
-    print("Hasil bagi: ${a / b}");
-  } else {
-    print("Tidak bisa membagi dengan nol");
+    if (pilih == '5') {
+      print('Bye!');
+      return;
+    }
+
+    final a = _readNumber('Masukkan angka pertama');
+    final b = _readNumber('Masukkan angka kedua');
+
+    switch (pilih) {
+      case '1':
+        print('Hasil: ${a + b}');
+        break;
+      case '2':
+        print('Hasil: ${a - b}');
+        break;
+      case '3':
+        print('Hasil: ${a * b}');
+        break;
+      case '4':
+        if (b != 0) {
+          print('Hasil: ${a / b}');
+        } else {
+          print('Tidak bisa membagi dengan nol');
+        }
+        break;
+      default:
+        print('Pilihan tidak dikenal.');
+    }
   }
 }
