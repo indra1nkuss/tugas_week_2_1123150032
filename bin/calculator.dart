@@ -1,3 +1,18 @@
+import 'dart:io';
+
+double _readNumber(String label) {
+  while (true) {
+    stdout.write('$label: ');
+    final input = stdin.readLineSync();
+    if (input == null) continue;
+    final value = double.tryParse(input.trim());
+    if (value != null) return value;
+    print('Input tidak valid. Masukkan angka.');
+  }
+}
+
 void main() {
-  print("Hello, Dart Calculator!");
+  final a = _readNumber("Masukkan angka pertama");
+  final b = _readNumber("Masukkan angka kedua");
+  print("Angka yang dimasukkan: $a dan $b");
 }
